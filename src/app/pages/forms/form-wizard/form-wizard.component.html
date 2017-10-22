@@ -1,0 +1,121 @@
+<div id="content_wrapper" class="detachedToolbarRight-wrapper">
+	<div class="content">
+		<header class="header-wrapper header-md overlay app_primary_bg">
+			<!-- <h1 class="text-white">Page Title</h1> -->
+		</header>
+		<div class="content-body container-fluid">
+			<div class="row row-eq-height flex-card">
+				<div class="col-md-8">
+					<div class="card form-wizard-wrapper">
+						<form-wizard>
+							<wizard-step [title]="'Step1'" (onNext)="onStep1Next($event)">
+								<section class="content-container">
+									<h1>Step 1</h1>
+									<form novalidate #stepOne [formGroup]="myform" class="form-horizontal">
+										<fieldset formGroupName="name">
+											<div class="form-group row">
+												<label class="col-2 col-form-label text-right" for="name">First Name:</label>
+												<div class="col-10">
+													<md-input-container floatPlaceholder="auto" class="float-auto">
+														<input mdInput class="form-control" type="text" name="name" id="name" formControlName="firstName" placeholder="First Name">
+													</md-input-container>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="col-2 col-form-label text-right" for="name">Last Name:</label>
+												<div class="col-10">
+													<md-input-container floatPlaceholder="auto" class="float-auto">
+														<input mdInput class="form-control" type="text" name="name" id="name" formControlName="lastName" placeholder="Last Name">
+													</md-input-container>
+												</div>
+											</div>
+										</fieldset>
+									</form>
+								</section>
+							</wizard-step>
+							<wizard-step [title]="'Step2'" (onNext)="onStep2Next($event)">
+								<section class="content-container">
+									<h1>Step 2</h1>
+									<form novalidate #stepTwo [formGroup]="myform" class="form-horizontal">
+										<div class="form-group row">
+											<label class="col-2 col-form-label text-right" for="email">Your Email:</label>
+											<div class="col-10">
+												<md-input-container floatPlaceholder="auto" class="float-auto">
+													<input mdInput class="form-control" type="email" name="email" id="email" formControlName="email" placeholder="@email.com">
+												</md-input-container>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-2 col-form-label text-right" for="language">Language:</label>
+											<div class="col-10">
+												<md-select class="block m-t-20" placeholder="Select your language" formControlName="language">
+													<md-option>None</md-option>
+													<md-option *ngFor="let lang of language" [value]="lang">
+														{{ lang }}
+													</md-option>
+												</md-select>
+											</div>
+										</div>
+									</form>
+								</section>
+							</wizard-step>
+							<wizard-step [title]="'Step3'" (onComplete)="onComplete($event)">
+								<section class="content-container">
+									<div [ngSwitch]="isCompleted">
+										<div *ngSwitchDefault>
+											<h1>Step 3</h1>
+											<form novalidate #stepThree [formGroup]="myform" class="form-horizontal">
+												<fieldset formGroupName="address">
+													<div class="form-group row">
+														<label class="col-2 col-form-label text-right" for="addressOne">Address One:</label>
+														<div class="col-10">
+															<md-input-container floatPlaceholder="auto" class="float-auto">
+																<input mdInput class="form-control" type="text" name="addressOne" id="addressOne" formControlName="addressOne" placeholder="Address One">
+															</md-input-container>
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-2 col-form-label text-right" for="addressTwo">Address Two:</label>
+														<div class="col-10">
+															<md-input-container floatPlaceholder="auto" class="float-auto">
+																<input mdInput class="form-control" type="text" name="addressTwo" id="addressTwo" formControlName="addressTwo" placeholder="Address Two">
+															</md-input-container>
+														</div>
+													</div>
+												</fieldset>
+												<div class="form-group row">
+													<label class="col-2 col-form-label text-right" for="city">City:</label>
+													<div class="col-10">
+														<md-input-container floatPlaceholder="auto" class="float-auto">
+															<input mdInput class="form-control" type="text" name="city" id="city" formControlName="city" placeholder="City">
+														</md-input-container>
+													</div>
+												</div>
+											</form>
+										</div>
+										<div *ngSwitchCase="true">
+											<h4>Thank you! You have completed all the steps.</h4>
+										</div>
+									</div>
+								</section>
+							</wizard-step>
+						</form-wizard>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card">
+						<header class="card-header">
+							<h2 class="card-title">Result</h2>
+						</header>
+						<div class="card-block">
+							<pre>
+								{{myform.value | json}}
+							</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<footer id="footer_wrapper" class="footer_wrapper"></footer>

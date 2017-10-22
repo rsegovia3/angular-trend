@@ -1,0 +1,25 @@
+
+<ngbox></ngbox>
+<div id="content_wrapper" class="fullWidth1-wrapper">
+	<div class="content">
+		<header class="header-wrapper header-sm">
+			<h1>Photo Gallery</h1>
+		</header>
+		<div class="content-body page-gallery m-t-30">
+			<div id="photo-gallery" class="gallery row">
+				<figure class="col-xs-6 col-sm-3" *ngFor="let image of images">
+					<div class="card image-over-card m-t-30">
+						<a class="card-image" ng-box [image]="true" group="group" href="{{image.imgPath}}{{image.imgName}}">
+								<img src="{{image.imgPath}}{{image.imgName}}" alt="">
+						</a>
+						<div class="card-block">
+							<h4 class="card-title text-center">{{image.imgCaption}}</h4>
+							<h6 class="category text-gray text-center"></h6>
+						</div>
+					</div>
+				</figure>
+			</div>
+		</div>
+	</div>
+</div>
+	<footer id="footer_wrapper" class="footer_wrapper"></footer>

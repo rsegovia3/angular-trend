@@ -1,0 +1,70 @@
+<div id="content_wrapper" class="boxedlayout1-wrapper">
+	<div class="content">
+		<div class="header-wrapper header-sm">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<header>
+							<h1>Tooltips &amp; Popovers</h1>
+						</header>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="content-body container">
+			<div class="row">
+				<div class="col">
+					<div class="card">
+						<header class="card-header">
+							<h2 class="card-title">Tooltips</h2>
+							<small class="card-subtitle">Four options are available: top, right, bottom, and left aligned.</small>
+						</header>
+						<div class="card-block">
+							<p>
+								
+								<md-input-container><input mdInput placeholder="Message" type="text" [(ngModel)]="message"></md-input-container>
+							</p>
+							<button #tooltip="mdTooltip" type="button" class="btn btn-info" [mdTooltip]="message" [mdTooltipPosition]="position" [mdTooltipDisabled]="disabled" [mdTooltipShowDelay]="showDelay" [mdTooltipHideDelay]="hideDelay" [mdTooltipClass]="{'red-tooltip': showExtraClass}">Mouse over to see the tooltip</button>
+						</div>
+						<div class="card-footer">
+							<md-radio-group [(ngModel)]="position">
+								<md-radio-button value="below">Below</md-radio-button>
+								<md-radio-button value="above">Above</md-radio-button>
+								<md-radio-button value="left">Left</md-radio-button>
+								<md-radio-button value="right">Right</md-radio-button>
+								<md-radio-button value="before">Before</md-radio-button>
+								<md-radio-button value="after">After</md-radio-button>
+							</md-radio-group>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="card">
+						<header class="card-header">
+							<h2 class="card-title">Popovers</h2>
+							<small class="card-subtitle">Four options are available: top, right, bottom, and left aligned.</small>
+						</header>
+						<div class="card-block btn-equal-width">
+							<button type="button" class="btn btn-info btn-block" popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover on left" placement="left">
+								Popover on left
+							</button>
+							
+							<button type="button" class="btn btn-info  btn-block" popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover on top" placement="top">
+								Popover on top
+							</button>
+							
+							<button type="button" class="btn btn-info  btn-block" popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover on bottom" placement="bottom">
+								Popover on bottom
+							</button>
+							
+							<button type="button" class="btn btn-info  btn-block" popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover on right" placement="right">
+								Popover on right
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<footer id="footer_wrapper" class="footer_wrapper"></footer>

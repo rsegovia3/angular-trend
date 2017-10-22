@@ -1,0 +1,22 @@
+<div class="card tabs-over-card {{tabColor}}">
+	<tabset>
+	    <tab heading="Tab One">
+				<template tabHeading>
+					<i class="zmdi zmdi-home float-left"></i>
+				</template>
+			<ng-content select="div.tab-content.one"></ng-content>
+			</tab>
+			 <tab  heading="Tab Two">
+				<template tabHeading>
+					<i class="zmdi zmdi-calendar-note float-left"></i>
+				</template>
+				<ng-content select="div.tab-content.two"></ng-content>
+			</tab>
+			 <tab  heading="Tab Three">
+				<template tabHeading>
+					<i class="zmdi  zmdi-view-list-alt float-left"></i>
+				</template>
+				<ng-content select="div.tab-content.three"></ng-content>
+			</tab>
+	  </tabset>
+</div>

@@ -1,0 +1,201 @@
+<div id="content_wrapper" class="fullWidth3-wrapper">
+	<div class="content">
+		<div class="header-wrapper overlay header-md">
+			<header class="container-fluid">
+				<div class="row">
+					<div class="col">
+						<h1>Form Elements</h1>
+					</div>
+				</div>
+			</header>
+		</div>
+		<div class="content-body">
+				<div class="row row-eq-height flex-card">
+				<div class="col-lg">
+					<div class="card">
+						<header class="card-header">
+							<h2 class="card-title">Basic inputs &amp; Textarea</h2>
+						</header>
+						<div class="card-block p-b-50">
+							<form class="form-horizontal">
+								<div class="form-group row">
+									<label class="col-2 col-form-label text-right">Name:</label>
+									<div class="col-10">
+										<md-input-container floatPlaceholder="never" class="float-never">
+											<input mdInput class="form-control" type="text">
+										</md-input-container>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-2 col-form-label text-right">Email:</label>
+									<div class="col-10">
+										<md-input-container floatPlaceholder="never" class="float-never">
+											<input mdInput class="form-control" type="email">
+										</md-input-container>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-2 col-form-label text-right">Password:</label>
+									<div class="col-10">
+										<md-input-container floatPlaceholder="never" class="float-never">
+											<input mdInput class="form-control" type="password">
+										</md-input-container>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-2 col-form-label text-right">Textarea:</label>
+									<div class="col-10">
+										<md-input-container floatPlaceholder="never" class="float-never">
+											<textarea mdInput class="form-control"></textarea>
+										</md-input-container>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg">
+					<div class="card">
+						<header class="card-header">
+							<h2 class="card-title">Inputs with floating labels</h2>
+						</header>
+						<div class="card-block p-b-50">
+							<form class="form-horizontal">
+								<div class="form-group row">
+									<div class="col">
+										<md-input-container floatPlaceholder="auto" class="float-auto">
+											<input mdInput placeholder="Name" class="form-control" type="text">
+										</md-input-container>
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col">
+										<md-input-container floatPlaceholder="auto" class="float-auto">
+											<input mdInput placeholder="Email" class="form-control" type="email">
+										</md-input-container>
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col">
+										<md-input-container floatPlaceholder="auto" class="float-auto">
+											<input mdInput placeholder="Password" class="form-control" type="password">
+										</md-input-container>
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col">
+										<md-input-container floatPlaceholder="auto" class="float-auto">
+											<textarea mdInput placeholder="Textarea" class="form-control"></textarea>
+										</md-input-container>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row row-eq-height">
+				<div class="col-xl">
+					<div class="card p-b-20 h-200">
+						<header class="card-header ">
+							<h2 class="card-title">Basic Select</h2>
+						</header>
+						<div class="card-block">
+							<div class="form-group">
+								<md-select class="block" placeholder="Drink" [color]="drinksTheme" [(ngModel)]="currentDrink" [required]="drinksRequired" [disabled]="drinksDisabled" [floatPlaceholder]="floatPlaceholder" #drinkControl="ngModel">
+									<md-option>None</md-option>
+									<md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
+										{{ drink.viewValue }}
+									</md-option>
+								</md-select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl">
+					<div class="card p-b-20 h-200">
+						<header class="card-header">
+							<h2 class="card-title">Multi Select</h2>
+						</header>
+						<div class="card-block">
+							<md-select class="block" multiple [color]="pokemonTheme" placeholder="Pokemon" [(ngModel)]="currentPokemon" [required]="pokemonRequired" [disabled]="pokemonDisabled" #pokemonControl="ngModel">
+								<md-option *ngFor="let creature of pokemon" [value]="creature.value">
+									{{ creature.viewValue }}
+								</md-option>
+							</md-select>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl">
+					<div class="card p-b-20 h-200">
+						<header class="card-header ">
+							<h2 class="card-title">Option Group Select</h2>
+						</header>
+						<div class="card-block">
+							<md-select class="block" placeholder="Pokemon" [(ngModel)]="currentPokemonFromGroup">
+								<md-optgroup *ngFor="let group of pokemonGroups" [label]="group.name" [disabled]="group.disabled">
+									<md-option *ngFor="let creature of group.pokemon" [value]="creature.value">
+										{{ creature.viewValue }}
+									</md-option>
+								</md-optgroup>
+							</md-select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row row-eq-height">
+				<div class="col-lg">
+					<div class="card h-400">
+						<header class="card-header">
+							<h2 class="card-title">Checkbox</h2>
+						</header>
+						<div class="card-block">
+							<section class="example-section">
+								<md-checkbox class="example-margin" [(ngModel)]="checked">Checked</md-checkbox>
+								<md-checkbox class="example-margin" [(ngModel)]="indeterminate">Indeterminate</md-checkbox>
+							</section>
+							<section class="example-section">
+								<label class="example-margin">Align:</label>
+								<md-radio-group [(ngModel)]="align" class="m-t-5">
+									<md-radio-button class="example-margin" value="start">Start</md-radio-button>
+									<md-radio-button class="example-margin" value="end">End</md-radio-button>
+								</md-radio-group>
+							</section>
+							<section class="example-section">
+								<md-checkbox class="example-margin" [(ngModel)]="disabled">Disabled</md-checkbox>
+							</section>
+						</div>
+						<div class="card-footer">
+							<h2>Result</h2>
+							<section class="example-section">
+								<md-checkbox class="example-margin" [checked]="checked" [indeterminate]="indeterminate" [align]="align" [disabled]="disabled">
+									I'm a checkbox
+								</md-checkbox>
+							</section>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg">
+					<div class="card h-400">
+						<header class="card-header">
+							<h2 class="card-title">Radio</h2>
+						</header>
+						<div class="card-block">
+							<md-radio-group class="example-radio-group" [(ngModel)]="favoriteSeason">
+								<md-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
+									{{season}}
+								</md-radio-button>
+							</md-radio-group>
+
+						</div>
+						<div class="card-footer">
+							<h2>Result</h2>
+							<div class="example-selected-value">Your favorite season is: {{favoriteSeason}}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+		<footer id="footer_wrapper" class="footer_wrapper"></footer>
